@@ -16,4 +16,12 @@ export default makeStyles((theme) => ({
     maxWidth: '100%',
     justifyContent: 'space-between',
   },
+  message: {
+    margin: '0 2em 4em 40em',
+    paddingLeft: '0.5em',
+    [theme.breakpoints.down('sm')]: {
+      margin: '0',
+    },
+    borderLeft: '7px solid #00CA2C',
+  },
 }));

@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles(() => ({
   postBox: {
     display: 'inline-block',
-    border: '1.5px solid green !important',
+    border: '1.5px solid #00CA2C !important',
     maxWidth: '20em',
     maxHeight: '20em',
     height: '20em',
