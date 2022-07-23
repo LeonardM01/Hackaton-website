@@ -28,9 +28,15 @@ app.use(cors());
 
 const indexRouter = require("./routes/index");
 const userRouter = require("./routes/user.js");
+const postsRouter = require("./routes/posts.js");
+const reportsRouter = require("./routes/reports.js");
+const trashcansRouter = require("./routes/trashcans.js");
 
 app.use("/", indexRouter);
 app.use("/user", userRouter);
+app.use("/posts", postsRouter);
+app.use("/reports", reportsRouter);
+app.use("/trashcans", trashcansRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
