@@ -53,7 +53,6 @@ function Navbar() {
               edge="start"
               color="inherit"
               aria-label="open drawer"
-              sx={{ mr: 2 }}
               onClick={() => setMobileOpen((previousMobileOpen) => !previousMobileOpen)}
             >
               <MenuIcon />
@@ -91,7 +90,7 @@ function Navbar() {
                     className={classes.login}
                     style={{ width: 30, height: 30 }}
                     alt="Profile"
-                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                    src="https://repair.eu/wp-content/uploads/2019/09/R2REurope.png"
                   />
                 </Button>
                 <Button
@@ -172,7 +171,7 @@ function Navbar() {
                       className={classes.login}
                       style={{ width: 30, height: 30 }}
                       alt="Profile"
-                      src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                      src="https://repair.eu/wp-content/uploads/2019/09/R2REurope.png"
                     />
                   </Button>
                   <Button
