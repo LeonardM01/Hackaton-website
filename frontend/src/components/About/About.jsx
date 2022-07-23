@@ -1,6 +1,6 @@
 import React from 'react';
-import Grid from '@mui/material';
-import { whaleImage } from '../../assets/whale.png';
+import { Grid } from '@mui/material';
+import whaleImage from '../../assets/whale.png';
 
 function About() {
   return (
