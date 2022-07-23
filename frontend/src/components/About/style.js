@@ -1,7 +1,7 @@
-import { makeStyles } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme) => ({
-    gridd: {
-        padding: '100px',
-    }
-}))
+  gridd: {
+    padding: '100px',
+  },
+}));

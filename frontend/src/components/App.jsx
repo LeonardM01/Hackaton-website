@@ -3,7 +3,7 @@ import { CssBaseline } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 
 import useStyles from './styles.js';
-import { Navbar, Footer, About, Login } from './index.js';
+import { Navbar, Footer, About, Login, Signup } from './index.js';
 
 function App() {
   const classes = useStyles();
@@ -13,6 +13,7 @@ function App() {
       <CssBaseline />
       <Routes>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
       <Navbar />
       <Routes>

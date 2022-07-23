@@ -44,10 +44,10 @@ function Navbar() {
             <Button component={Link} className={classes.link} to="/about">
               O nama
             </Button>
-            <Button component={Link} className={classes.login} to="/login">
+            <Button component={Link} variant="outlined" className={classes.login} to="/login">
               Log in
             </Button>
-            <Button className={classes.login} to="/signup">
+            <Button component={Link} variant="outlined" className={classes.login} to="/signup">
               Sign up
             </Button>
           </Typography>
@@ -70,6 +70,9 @@ function Navbar() {
               </Button>
               <Button component={Link} className={classes.linkDrawer} to="/about">
                 O nama
+              </Button>
+              <Button component={Link} className={classes.loginDrawer} to="/signup">
+                Sign up
               </Button>
               <Button component={Link} className={classes.loginDrawer} to="/login">
                 Log in

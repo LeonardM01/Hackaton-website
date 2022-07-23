@@ -7,7 +7,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import useStyles from './styles.js';
 import loginBg from '../../assets/loginBg.jpg';
 
-function Login() {
+function Signup() {
   const classes = useStyles();
 
   return (
@@ -40,4 +40,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
