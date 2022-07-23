@@ -23,5 +23,7 @@ export const deletePost = (postId) => async (dispatch) => {
     // Api delete post
     const { data } = postId;
     dispatch({ type: 'posts/deletePost', payload: data });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -15,8 +15,6 @@ const authSlice = createSlice({
       return { authData: action.payload, errors: null };
     },
     create(state, action) {
-      // eslint-disable-next-line no-debugger
-      debugger;
       if (action.payload.message) { return { authData: null, errors: { message: action.payload.message, type: 'create' } }; }
       localStorage.setItem('profile', JSON.stringify({ ...action?.payload }));
 
