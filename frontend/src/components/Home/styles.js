@@ -7,4 +7,9 @@ export default makeStyles(() => ({
     display: 'flex',
     padding: '5em  !important',
   },
+  posts: {
+    display: 'flex',
+    justifyContent: 'center',
+    maxWidth: '100%',
+  },
 }));
