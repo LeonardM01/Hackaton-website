@@ -127,7 +127,7 @@ function Signup() {
           />
         </ListItem>
       </List>
-      <Button variant="contained" onClick={() => console.log(formData.firstName + formData.lastName + formData.email)}>
+      <Button variant="contained" color="success" onClick={() => console.log(formData.firstName + formData.lastName + formData.email)}>
         Submit
       </Button>
     </Box>

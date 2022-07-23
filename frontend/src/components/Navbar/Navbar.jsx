@@ -9,7 +9,7 @@ function Navbar() {
   const classes = useStyles();
   const isMobile = useMediaQuery('(max-width: 900px)');
   const [mobileOpen, setMobileOpen] = useState(false);
-  const isAuthenticated = true;
+  const [isAuthenticated, setAuthenticated] = useState(true);
 
   return (
     <Box sx={{ flexGrow: 1 }} height="auto" position="absolute">
@@ -46,21 +46,24 @@ function Navbar() {
               O nama
             </Button>
             {isAuthenticated ? (
-              <Button
-                color="inherit"
-                component={Link}
-                to="/profile/:id"
-                className={classes.profileButton}
-                onClick={() => {}}
-                disableRipple
-              >
-                <Avatar
-                  className={classes.login}
-                  style={{ width: 30, height: 30 }}
-                  alt="Profile"
-                  src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-                />
-              </Button>
+              <>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/profile/:id"
+                  className={classes.profileButton}
+                  onClick={() => {}}
+                  disableRipple
+                >
+                  <Avatar
+                    className={classes.login}
+                    style={{ width: 30, height: 30, paddingTop: 0 }}
+                    alt="Profile"
+                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                  />
+                </Button>
+                <Button to="/login" component={Link} className={classes.login} onClick={() => setAuthenticated((previousAuthenticated) => !previousAuthenticated)}>Log out</Button>
+              </>
             ) : (
               <>
                 <Button component={Link} variant="contained" color="success" className={classes.login} to="/login">
@@ -92,12 +95,32 @@ function Navbar() {
               <Button component={Link} className={classes.linkDrawer} to="/about">
                 O nama
               </Button>
-              <Button component={Link} className={classes.loginDrawer} to="/signup">
-                Sign up
-              </Button>
-              <Button component={Link} className={classes.loginDrawer} to="/login">
-                Log in
-              </Button>
+              {!isAuthenticated ? (
+                <>
+                  <Button component={Link} className={classes.loginDrawer} to="/signup">
+                    Sign up
+                  </Button>
+                  <Button component={Link} className={classes.loginDrawer} to="/login">
+                    Log in
+                  </Button>
+                </>
+              ) : (
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/profile/:id"
+                  className={classes.profileButton}
+                  onClick={() => {}}
+                  disableRipple
+                >
+                  <Avatar
+                    className={classes.login}
+                    style={{ width: 30, height: 30 }}
+                    alt="Profile"
+                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                  />
+                </Button>
+              )}
             </Drawer>
           )}
         </Toolbar>
