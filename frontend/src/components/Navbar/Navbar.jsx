@@ -11,8 +11,8 @@ function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="absolute">
+    <Box sx={{ flexGrow: 1 }} height="auto" position="fixed">
+      <AppBar>
         <Toolbar className={classes.toolbar}>
           {isMobile && (
             <IconButton
