@@ -7,6 +7,9 @@ import PersonIcon from '@mui/icons-material/Person';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 
+import { useDispatch } from 'react-redux';
+import { createUser } from '../../app/action-creators/auth.js';
+
 import useStyles from './styles.js';
 import signUp from '../../assets/signup.jpg';
 
@@ -16,8 +19,14 @@ function Signup() {
   const initialState = { firstName: '', lastName: '', username: '', email: '', password: '', passwordConfirm: '' };
   const [formData, setFromData] = useState(initialState);
 
+  const dispatch = useDispatch();
+  const handleSubmit = () => {
+    // eslint-disable-next-line no-debugger
+    dispatch(createUser(formData));
+  };
+
   return (
-    <Box component="form" className={classes.form} sx={{ background: `url(${signUp})`, paddingLeft: { xs: '18%', sm: '30%', md: '40%' } }}>
+    <Box component="form" onSubmit={handleSubmit} className={classes.form} sx={{ background: `url(${signUp})`, paddingLeft: { xs: '18%', sm: '30%', md: '40%' } }}>
       <List className={classes.inputList}>
         <ListItem>
           <Input
@@ -60,7 +69,7 @@ function Signup() {
             value={formData.username}
             onChange={(e) => {
               setFromData({
-                ...formData, userame: e.target.value,
+                ...formData, username: e.target.value,
               });
             }}
             name="Username"
@@ -127,7 +136,7 @@ function Signup() {
           />
         </ListItem>
       </List>
-      <Button variant="contained" onClick={() => console.log(formData.firstName + formData.lastName + formData.email)}>
+      <Button variant="contained" onClick={handleSubmit}>
         Submit
       </Button>
     </Box>
