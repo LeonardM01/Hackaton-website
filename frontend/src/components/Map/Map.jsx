@@ -1,15 +1,16 @@
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
+const apiKey = process.env.MAP_BOX_PUBLIC_API_KEY;
 function Map() {
   console.log('pomoz boze');
-  const Map = ReactMapboxGl({
+  const Map1 = ReactMapboxGl({
     accessToken:
-      'pk.eyJ1IjoibGVvbmFyZG0wMSIsImEiOiJjbDV5N3l2YmExMG05M3FsdGM3aHlhMGc5In0.YQmFvDMgTteDL18unT0p-g',
+      `${apiKey}`,
   });
 
   return (
-    <Map
+    <Map1
       // eslint-disable-next-line react/style-prop-object
       style="mapbox://styles/leonardm01/cl5y86x1a000315pnspwhlcg9"
       center={[14.443267, 45.326423]}
@@ -28,7 +29,7 @@ function Map() {
       <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
         <Feature coordinates={[14.443267, 45.326423]} />
       </Layer>
-    </Map>
+    </Map1>
   );
 }
 
