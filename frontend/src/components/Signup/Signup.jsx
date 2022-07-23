@@ -17,13 +17,14 @@ import signUp from '../../assets/signup.jpg';
 function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const classes = useStyles();
-  const initialState = { firstName: '', lastName: '', username: '', email: '', password: '', passwordConfirm: '' };
+  const initialState = { firstName: '', lastName: '', username: '', email: '', password: '', confirmPassword: '' };
   const [formData, setFromData] = useState(initialState);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const authData = useSelector((state) => state.auth);
 
   const handleSubmit = async () => {
+    console.log(formData);
     dispatch(createUser(formData, navigate));
   };
 
@@ -146,12 +147,14 @@ function Signup() {
           )}
             error={!formData.passwordConfirm !== '' && formData.passwordConfirm === formData.password}
             type="password"
+            value={formData.confirmPassword}
+            onChange={(e) => setFromData({ ...formData, confirmPassword: e.target.value })}
             placeholder="Confirm password"
             className={classes.input}
           />
         </ListItem>
       </List>
-      <Button variant="contained" color="success" onClick={handleSubmit}>
+      <Button variant="contained" type="submit" color="success" onClick={handleSubmit}>
         Submit
       </Button>
       {authData.errors?.type === 'create' && <div>{authData.errors.message}</div>}

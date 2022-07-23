@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Avatar, AppBar, Box, Toolbar, IconButton, Typography, useMediaQuery, Drawer, Button } from '@mui/material';
+import {
+  Avatar,
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  useMediaQuery,
+  Drawer,
+  Button,
+} from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
@@ -84,11 +94,33 @@ function Navbar() {
                     src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
                   />
                 </Button>
-                <Button component={Link} to="/login" className={classes.login} onClick={() => logout()}>Log out</Button>
+                <Button
+                  component={Link}
+                  to="/login"
+                  className={classes.login}
+                  onClick={() => logout()}
+                >
+                  Log out
+                </Button>
+                {(user.result.role === 'superadmin' || user.result.role === 'admin') && (
+                  <Button
+                    component={Link}
+                    to="/dashboard"
+                    className={classes.login}
+                  >
+                    Admin dashboard
+                  </Button>
+                )}
               </>
             ) : (
               <>
-                <Button component={Link} variant="contained" color="success" className={classes.login} to="/login">
+                <Button
+                  component={Link}
+                  variant="contained"
+                  color="success"
+                  className={classes.login}
+                  to="/login"
+                >
                   Log in
                 </Button>
                 <Button component={Link} variant="outlined" className={classes.login} to="/signup">
@@ -143,7 +175,15 @@ function Navbar() {
                       src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
                     />
                   </Button>
-                  <Button component={Link} variant="outlined" to="/login" className={classes.login} onClick={() => logout()}>Log out</Button>
+                  <Button
+                    component={Link}
+                    variant="outlined"
+                    to="/login"
+                    className={classes.login}
+                    onClick={() => logout()}
+                  >
+                    Log out
+                  </Button>
                 </>
               )}
             </Drawer>
