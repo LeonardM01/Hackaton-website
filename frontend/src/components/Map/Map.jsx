@@ -6,15 +6,18 @@ import useStyles from './styles.js';
 function Map() {
   const classes = useStyles();
   console.log('pomoz boze');
+  function _onClickMap(map, evt) {
+    console.log(evt.lngLat);
+  }
 
   const Map1 = ReactMapboxGl({
     accessToken:
       'pk.eyJ1IjoibGVvbmFyZG0wMSIsImEiOiJjbDV5N3l2YmExMG05M3FsdGM3aHlhMGc5In0.YQmFvDMgTteDL18unT0p-g',
   });
-
   return (
     <Map1
-      onClick={console.log(coordinates)}
+      // eslint-disable-next-line react/jsx-no-bind
+      onClick={_onClickMap}
       className={classes.map}
     // eslint-disable-next-line react/style-prop-object
       style="mapbox://styles/leonardm01/cl5y86x1a000315pnspwhlcg9"
