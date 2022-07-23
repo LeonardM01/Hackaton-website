@@ -1,8 +1,9 @@
 import React from 'react';
+import Map from '../Map/MapAdmin';
 
 function AdminDashboard() {
   return (
-    <div>JA SAM ADMIN HAHAH</div>
+    <Map />
   );
 }
 
