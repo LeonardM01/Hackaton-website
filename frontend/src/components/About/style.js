@@ -11,4 +11,10 @@ export default makeStyles(() => ({
   tekst: {
     textAlign: 'left',
   },
+  img: {
+    maxWidth: '100%',
+    height: 'auto',
+    padding: '0',
+    margin: '0',
+  },
 }));
