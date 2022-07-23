@@ -10,4 +10,4 @@ const TruckSchema = new Schema({
 });
 
 
-module.exports = mongoose.model("Truck", TruckSchema);
+module.exports = mongoose.model("Post", PostSchema);
