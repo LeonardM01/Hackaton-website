@@ -13,3 +13,7 @@ const TrashCanSchema = new Schema({
 
 
 module.exports = mongoose.model("TrashCan", TrashCanSchema);
+
+TrashCanSchema.virtual("averageFilled").get(function () {
+    return this.percentFilled.reduce((a, b) => a + b, 0) / this.percentFilled.length;
+  });
