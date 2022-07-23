@@ -7,13 +7,17 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     login(state, action) {
-      if (action.payload.message) return { authData: null, errors: action.payload.message };
+      if (action.payload.message) {
+        return { authData: null, errors: { message: action.payload.message, type: 'login' } };
+      }
       localStorage.setItem('profile', JSON.stringify({ ...action?.payload }));
 
       return { authData: action.payload, errors: null };
     },
     create(state, action) {
-      if (action.payload.message) return { authData: null, errors: action.payload.message };
+      // eslint-disable-next-line no-debugger
+      debugger;
+      if (action.payload.message) { return { authData: null, errors: { message: action.payload.message, type: 'create' } }; }
       localStorage.setItem('profile', JSON.stringify({ ...action?.payload }));
 
       return { authData: action.payload, errors: null };
