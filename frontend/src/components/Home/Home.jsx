@@ -1,11 +1,16 @@
 import React from 'react';
+import { Box } from '@mui/material';
 import { Map } from '..';
 
+import useStyles from './styles.js';
+
 function Home() {
-  console.log('upomoc');
+  const classes = useStyles();
 
   return (
-    <Map />
+    <Box className={classes.map}>
+      <Map />
+    </Box>
   );
 }
 
