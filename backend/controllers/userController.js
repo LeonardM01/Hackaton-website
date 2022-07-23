@@ -38,9 +38,10 @@ exports.createUser = async (req, res) => {
         _id: result._id,
         role: result.role,
       },
-      "secret",
+      "test",
       { expiresIn: "1h" }
     );
+    result.password = null;
 
     res.status(200).json({ result, token });
   } catch (error) {

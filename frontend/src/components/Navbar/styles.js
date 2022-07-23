@@ -17,6 +17,7 @@ export default makeStyles((theme) => ({
   },
   login: {
     textDecoration: 'none !important',
+    marginLeft: '10px',
     color: `${theme.palette.success.main} !important`,
     display: 'block',
     float: 'right',
