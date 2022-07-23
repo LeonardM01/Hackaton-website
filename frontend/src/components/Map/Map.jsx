@@ -1,12 +1,11 @@
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-const apiKey = process.env.MAP_BOX_PUBLIC_API_KEY;
 function Map() {
   console.log('pomoz boze');
   const Map1 = ReactMapboxGl({
     accessToken:
-      `${apiKey}`,
+      'pk.eyJ1IjoibGVvbmFyZG0wMSIsImEiOiJjbDV5N3l2YmExMG05M3FsdGM3aHlhMGc5In0.YQmFvDMgTteDL18unT0p-g',
   });
 
   return (
