@@ -7,7 +7,7 @@ import { getTrashcans } from '../../app/action-creators/trashcans.js';
 import useStyles from './styles.js';
 import trashFull from '../../assets/trashred.png';
 import trashEmpty from '../../assets/trashgreen.png';
-import trashUndefined from '../../assets/trashgrey.png';
+import trashUndefined from '../../assets/trashgray.png';
 import trashWarning from '../../assets/trashyellow.png';
 
 function MapAdmin() {
@@ -43,7 +43,7 @@ function MapAdmin() {
       className={classes.map}
       // eslint-disable-next-line react/style-prop-object
       style="mapbox://styles/leonardm01/cl5y86x1a000315pnspwhlcg9"
-      center={[14.443267, 45.326423]}
+      center={[14.383267, 45.305503]}
       maxBounds={[
         [14.283084, 45.305503],
         [14.549883, 45.428794],

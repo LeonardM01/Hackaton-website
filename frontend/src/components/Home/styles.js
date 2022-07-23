@@ -19,6 +19,7 @@ export default makeStyles((theme) => ({
   message: {
     margin: '0 2em 4em 40em',
     paddingLeft: '0.5em',
+    fontSize: '15px',
     [theme.breakpoints.down('sm')]: {
       margin: '0',
     },
