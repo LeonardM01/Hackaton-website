@@ -7,7 +7,8 @@ const TrashCanSchema = new Schema({
     coordinates: { 
         latitude: { type: Number, required: true },
         longitude: { type: Number, required: true } 
-    }
+    },
+    percentFilled: { type: [Number], required: false }
 });
 
 
