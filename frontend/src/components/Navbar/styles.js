@@ -17,16 +17,12 @@ export default makeStyles((theme) => ({
   },
   login: {
     textDecoration: 'none !important',
-    marginLeft: '10px',
-    color: `${theme.palette.success.main} !important`,
+    marginRight: '1em !important',
+    borderColor: 'white !important',
+    color: 'white !important',
     display: 'block',
     float: 'right',
     justifyContent: 'end',
-    '&:hover': {
-      color: `${theme.palette.success.light} !important`,
-      textDecoration: 'none',
-      cursor: 'pointer !important',
-    },
   },
   drawerPaper: {
     backgroundColor: theme.palette.mode === 'dark' ? 'white !important' : 'black !important',
@@ -50,5 +46,10 @@ export default makeStyles((theme) => ({
       textDecoration: 'none',
       cursor: 'pointer !important',
     },
+  },
+  profileButton: {
+    display: 'block',
+    float: 'right',
+    justifyContent: 'end',
   },
 }));

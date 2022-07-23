@@ -12,9 +12,12 @@ const postSlice = createSlice({
     createPost(state, action) {
       return [...state, action.payload];
     },
+    deletePost(state, action) {
+      return state.filter((post) => post._id !== action.payload);
+    },
   },
 });
 
-export const { getPosts, createPost } = postSlice.actions;
+export const { getPosts, createPost, deletePost } = postSlice.actions;
 
 export default postSlice.reducer;
