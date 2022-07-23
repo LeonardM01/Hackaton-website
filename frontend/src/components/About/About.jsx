@@ -1,18 +1,18 @@
-import React from 'react'
+import React from 'react';
 import { Navbar, Footer } from '../index.js';
 
-const About = () => {
+function About() {
   return (
     <>
-        <Navbar />
-        <Grid container spacing={1}>
-            <Grid item xs={6} md={8}>
-                <img src={`${item.img}?w=164&h=164&fit=crop&auto=format`} />
-            </Grid>
+      <Navbar />
+      <Grid container spacing={1}>
+        <Grid item xs={6} md={8}>
+          <img src={`${item.img}?w=164&h=164&fit=crop&auto=format`} />
         </Grid>
-        <Footer />
+      </Grid>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default About
+export default About;
