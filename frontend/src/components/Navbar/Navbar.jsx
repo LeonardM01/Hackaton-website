@@ -1,15 +1,37 @@
-import { React, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Avatar, AppBar, Box, Toolbar, IconButton, Typography, useMediaQuery, Drawer, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import decode from 'jwt-decode';
+import { useDispatch } from 'react-redux';
 import useStyles from './styles.js';
 
 function Navbar() {
   const classes = useStyles();
   const isMobile = useMediaQuery('(max-width: 900px)');
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isAuthenticated, setAuthenticated] = useState(true);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+  const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logout = () => {
+    dispatch({ type: 'auth/logout' });
+    navigate('/login');
+    setUser(null);
+  };
+
+  useEffect(() => {
+    const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+    }
+
+    setUser(JSON.parse(localStorage.getItem('profile')));
+  }, [location]);
 
   return (
     <Box sx={{ flexGrow: 1 }} height="auto" position="absolute">
@@ -45,25 +67,22 @@ function Navbar() {
             <Button component={Link} className={classes.link} to="/about">
               O nama
             </Button>
-            {isAuthenticated ? (
-              <>
-                <Button
-                  color="inherit"
-                  component={Link}
-                  to="/profile/:id"
-                  className={classes.profileButton}
-                  onClick={() => {}}
-                  disableRipple
-                >
-                  <Avatar
-                    className={classes.login}
-                    style={{ width: 30, height: 30, paddingTop: 0 }}
-                    alt="Profile"
-                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-                  />
-                </Button>
-                <Button to="/login" component={Link} className={classes.login} onClick={() => setAuthenticated((previousAuthenticated) => !previousAuthenticated)}>Log out</Button>
-              </>
+            {user ? (
+              <Button
+                color="inherit"
+                component={Link}
+                to="/profile/:id"
+                className={classes.profileButton}
+                onClick={logout}
+                disableRipple
+              >
+                <Avatar
+                  className={classes.login}
+                  style={{ width: 30, height: 30 }}
+                  alt="Profile"
+                  src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                />
+              </Button>
             ) : (
               <>
                 <Button component={Link} variant="contained" color="success" className={classes.login} to="/login">
@@ -95,7 +114,7 @@ function Navbar() {
               <Button component={Link} className={classes.linkDrawer} to="/about">
                 O nama
               </Button>
-              {!isAuthenticated ? (
+              {!user ? (
                 <>
                   <Button component={Link} className={classes.loginDrawer} to="/signup">
                     Sign up
