@@ -1,12 +1,13 @@
 import { React, useState } from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, useMediaQuery, Link, Drawer } from '@mui/material';
+import { AppBar, Box, Toolbar, IconButton, Typography, useMediaQuery, Drawer, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 import useStyles from './styles.js';
 
 function Navbar() {
   const classes = useStyles();
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  const isMobile = useMediaQuery('(max-width: 900px)');
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -29,17 +30,26 @@ function Navbar() {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'none', md: 'block' } }}
           >
-            <Link className={classes.link} to="/">
+            <Button component={Link} className={classes.link} to="/">
               Početna
-            </Link>
-            <Link className={classes.link} to="/">
+            </Button>
+            <Button component={Link} className={classes.link} to="/">
               Novosti
-            </Link>
-            <Link className={classes.link} to="/">
+            </Button>
+            <Button component={Link} className={classes.link} to="/karta/">
               Karta
-            </Link>
+            </Button>
+            <Button component={Link} className={classes.link} to="/about">
+              O nama
+            </Button>
+            <Button component={Link} className={classes.login} to="/login">
+              Log in
+            </Button>
+            <Button className={classes.login} to="/signup">
+              Sign up
+            </Button>
           </Typography>
           {isMobile && (
             <Drawer
@@ -49,18 +59,21 @@ function Navbar() {
               onClose={() => setMobileOpen((previousMobileOpen) => !previousMobileOpen)}
               classes={{ paper: classes.drawerPaper }}
             >
-              <Link className={classes.linkDrawer} to="/">
+              <Button component={Link} className={classes.linkDrawer} to="/">
                 Početna
-              </Link>
-              <Link className={classes.linkDrawer} to="/">
+              </Button>
+              <Button component={Link} className={classes.linkDrawer} to="/">
                 Novosti
-              </Link>
-              <Link className={classes.linkDrawer} to="/">
+              </Button>
+              <Button component={Link} className={classes.linkDrawer} to="/karta">
                 Karta
-              </Link>
-              <Link className={classes.login} to="/" paddingBottom="1em">
+              </Button>
+              <Button component={Link} className={classes.linkDrawer} to="/about">
+                O nama
+              </Button>
+              <Button component={Link} className={classes.loginDrawer} to="/login">
                 Log in
-              </Link>
+              </Button>
             </Drawer>
           )}
         </Toolbar>
