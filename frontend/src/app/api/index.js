@@ -20,3 +20,8 @@ export const createUser = (formData) => API.post('/user/create', formData);
 export const getReports = (numSkip) => API.get(`/reports/getReports?numSkip=${numSkip}`);
 export const createReport = (reportData) => API.post('/reports/createReport', reportData);
 export const resolveReport = (reportData) => API.patch('/reports/resolveReport', reportData);
+
+export const getTrashcans = () => API.get('/trashcans/getTrashcans');
+export const getTrashcan = (id) => API.get(`/trashcans/getTrashcan/${id}`);
+export const createTrashcan = (formData) => API.post('/trashcans/createTrashcan', formData);
+export const deleteTrashcan = (id) => API.delete(`/trashcans/deleteTrashcan/${id}`);

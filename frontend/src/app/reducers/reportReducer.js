@@ -18,6 +18,6 @@ const reportSlice = createSlice({
   },
 });
 
-export const { getPosts, createPost } = reportSlice.actions;
+export const { getReports, createReport, resolveReport } = reportSlice.actions;
 
 export default reportSlice.reducer;
