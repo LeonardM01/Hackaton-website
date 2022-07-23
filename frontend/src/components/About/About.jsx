@@ -5,8 +5,11 @@ import whaleImage from '../../assets/whale.png';
 function About() {
   return (
     <Grid container spacing={1}>
-      <Grid item xs={6} md={8}>
+      <Grid item xs={6} md={4}>
         <img src={`${whaleImage}?w=164&h=164&fit=crop&auto=format`} />
+      </Grid>
+      <Grid item xs={6} md={8}>
+        <p>Neki tekst</p>
       </Grid>
     </Grid>
   );
