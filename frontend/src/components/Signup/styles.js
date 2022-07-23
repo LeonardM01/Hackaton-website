@@ -5,11 +5,14 @@ export default makeStyles(() => ({
   form: {
     height: '100vh',
     width: '100%',
-    paddingTop: '40vh',
+    paddingTop: '30vh',
     display: 'block !important',
     backgroundImage: 'url("loginBg")',
   },
   inputList: {
     display: 'block',
+  },
+  input: {
+    maxWidth: '40%',
   },
 }));

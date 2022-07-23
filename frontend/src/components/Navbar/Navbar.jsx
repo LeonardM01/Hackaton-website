@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { AppBar, Box, Toolbar, IconButton, Typography, useMediaQuery, Drawer, Button } from '@mui/material';
+import { Avatar, AppBar, Box, Toolbar, IconButton, Typography, useMediaQuery, Drawer, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 
@@ -9,9 +9,10 @@ function Navbar() {
   const classes = useStyles();
   const isMobile = useMediaQuery('(max-width: 900px)');
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isAuthenticated = true;
 
   return (
-    <Box sx={{ flexGrow: 1 }} height="auto" position="fixed">
+    <Box sx={{ flexGrow: 1 }} height="auto" position="absolute">
       <AppBar>
         <Toolbar className={classes.toolbar}>
           {isMobile && (
@@ -44,12 +45,32 @@ function Navbar() {
             <Button component={Link} className={classes.link} to="/about">
               O nama
             </Button>
-            <Button component={Link} variant="outlined" className={classes.login} to="/login">
-              Log in
-            </Button>
-            <Button component={Link} variant="outlined" className={classes.login} to="/signup">
-              Sign up
-            </Button>
+            {isAuthenticated ? (
+              <Button
+                color="inherit"
+                component={Link}
+                to="/profile/:id"
+                className={classes.profileButton}
+                onClick={() => {}}
+                disableRipple
+              >
+                <Avatar
+                  className={classes.login}
+                  style={{ width: 30, height: 30 }}
+                  alt="Profile"
+                  src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                />
+              </Button>
+            ) : (
+              <>
+                <Button component={Link} variant="contained" color="success" className={classes.login} to="/login">
+                  Log in
+                </Button>
+                <Button component={Link} variant="outlined" className={classes.login} to="/signup">
+                  Sign up
+                </Button>
+              </>
+            )}
           </Typography>
           {isMobile && (
             <Drawer
