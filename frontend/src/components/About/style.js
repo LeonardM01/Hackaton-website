@@ -1,7 +1,14 @@
 import { makeStyles } from '@mui/styles';
 
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
   gridd: {
-    padding: '100px',
+    padding: '150px 50px',
+    textAlign: 'center',
+  },
+  image: {
+    width: '300px',
+  },
+  tekst: {
+    textAlign: 'left',
   },
 }));
