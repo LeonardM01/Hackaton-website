@@ -57,5 +57,5 @@ exports.resolveReport = async (req, res) => {
 
     await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
 
-    res.json(updatedPost);
+    res.json(updatedPost._id);
   }
