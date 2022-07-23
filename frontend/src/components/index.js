@@ -8,3 +8,4 @@ export { default as Dashboard } from './AdminDashboard/AdminDashboard';
 // eslint-disable-next-line import/no-cycle
 export { default as Home } from './Home/Home';
 export { default as Map } from './Map/Map.jsx';
+export { default as Post } from './Post/Post';

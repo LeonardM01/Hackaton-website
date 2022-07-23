@@ -2,8 +2,10 @@
 import { makeStyles } from '@mui/styles';
 
 export default makeStyles(() => ({
-  root: {
-    height: '100%',
-    display: 'block',
+  postBox: {
+    border: '1.5px solid green',
+  },
+  title: {
+    fontWeight: 'bold',
   },
 }));
