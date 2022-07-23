@@ -10,6 +10,22 @@ export default makeStyles((theme) => ({
     textDecoration: 'none !important',
     paddingRight: '2em',
     color: theme.palette.mode === 'dark' ? 'black !important' : 'white !important',
+    '&:hover': {
+      textDecoration: 'none',
+      cursor: 'pointer !important',
+    },
+  },
+  login: {
+    textDecoration: 'none !important',
+    color: `${theme.palette.success.main} !important`,
+    display: 'block',
+    float: 'right',
+    justifyContent: 'end',
+    '&:hover': {
+      color: `${theme.palette.success.light} !important`,
+      textDecoration: 'none',
+      cursor: 'pointer !important',
+    },
   },
   drawerPaper: {
     backgroundColor: theme.palette.mode === 'dark' ? 'white !important' : 'black !important',
@@ -19,11 +35,19 @@ export default makeStyles((theme) => ({
     fontSize: '1.5em',
     textDecoration: 'none !important',
     padding: '1em 1em 0',
+    '&:hover': {
+      textDecoration: 'none',
+      cursor: 'pointer !important',
+    },
   },
-  login: {
+  loginDrawer: {
     color: `${theme.palette.success.main} !important`,
     fontSize: '1.5em',
     textDecoration: 'none !important',
     padding: '1em 1em 0',
+    '&:hover': {
+      textDecoration: 'none',
+      cursor: 'pointer !important',
+    },
   },
 }));
