@@ -3,6 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 function Map() {
   console.log('pomoz boze');
+  // eslint-disable-next-line no-shadow
   const Map = ReactMapboxGl({
     accessToken:
       'pk.eyJ1IjoibGVvbmFyZG0wMSIsImEiOiJjbDV5N3l2YmExMG05M3FsdGM3aHlhMGc5In0.YQmFvDMgTteDL18unT0p-g',
