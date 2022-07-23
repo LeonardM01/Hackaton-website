@@ -6,7 +6,7 @@ import useStyles from './styles.js';
 function Map() {
   const classes = useStyles();
   console.log('pomoz boze');
-  function _onClickMap(map, evt) {
+  function onClickMap(map, evt) {
     console.log(evt.lngLat);
   }
 
@@ -17,7 +17,7 @@ function Map() {
   return (
     <Map1
       // eslint-disable-next-line react/jsx-no-bind
-      onClick={_onClickMap}
+      onClick={onClickMap}
       className={classes.map}
     // eslint-disable-next-line react/style-prop-object
       style="mapbox://styles/leonardm01/cl5y86x1a000315pnspwhlcg9"
