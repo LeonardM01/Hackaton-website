@@ -3,7 +3,7 @@ import { Box, List, ListItem, Input, Button } from '@mui/material';
 import InputAdornment from '@mui/material/InputAdornment';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import useStyles from './styles.js';
 import loginBg from '../../assets/loginBg.jpg';
@@ -14,10 +14,10 @@ function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const authData = useSelector((state) => state.auth);
 
   const handleSubmit = async () => {
-    await dispatch(loginUser(formData));
-    navigate('/');
+    await dispatch(loginUser(formData, navigate));
   };
 
   return (
@@ -54,6 +54,7 @@ function Login() {
       <Button variant="contained" color="success" onClick={handleSubmit}>
         Login
       </Button>
+      {authData.errors?.type === 'login' && <div>{authData.errors.message}</div>}
     </Box>
   );
 }

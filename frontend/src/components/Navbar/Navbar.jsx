@@ -68,21 +68,24 @@ function Navbar() {
               O nama
             </Button>
             {user ? (
-              <Button
-                color="inherit"
-                component={Link}
-                to="/profile/:id"
-                className={classes.profileButton}
-                onClick={logout}
-                disableRipple
-              >
-                <Avatar
-                  className={classes.login}
-                  style={{ width: 30, height: 30 }}
-                  alt="Profile"
-                  src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-                />
-              </Button>
+              <>
+                <Button
+                  color="inherit"
+                  component={Link}
+                  to="/profile/:id"
+                  className={classes.profileButton}
+                  onClick={() => {}}
+                  disableRipple
+                >
+                  <Avatar
+                    className={classes.login}
+                    style={{ width: 30, height: 30 }}
+                    alt="Profile"
+                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                  />
+                </Button>
+                <Button component={Link} to="/login" className={classes.login} onClick={() => logout()}>Log out</Button>
+              </>
             ) : (
               <>
                 <Button component={Link} variant="contained" color="success" className={classes.login} to="/login">
@@ -124,21 +127,24 @@ function Navbar() {
                   </Button>
                 </>
               ) : (
-                <Button
-                  color="inherit"
-                  component={Link}
-                  to="/profile/:id"
-                  className={classes.profileButton}
-                  onClick={() => {}}
-                  disableRipple
-                >
-                  <Avatar
-                    className={classes.login}
-                    style={{ width: 30, height: 30 }}
-                    alt="Profile"
-                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
-                  />
-                </Button>
+                <>
+                  <Button
+                    color="inherit"
+                    component={Link}
+                    to="/profile/:id"
+                    className={classes.profileButton}
+                    onClick={() => {}}
+                    disableRipple
+                  >
+                    <Avatar
+                      className={classes.login}
+                      style={{ width: 30, height: 30 }}
+                      alt="Profile"
+                      src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png"
+                    />
+                  </Button>
+                  <Button component={Link} variant="outlined" to="/login" className={classes.login} onClick={() => logout()}>Log out</Button>
+                </>
               )}
             </Drawer>
           )}
