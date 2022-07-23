@@ -13,6 +13,6 @@ export default makeStyles(() => ({
     display: 'block',
   },
   input: {
-    maxWidth: '40%',
+    maxWidth: '30%',
   },
 }));

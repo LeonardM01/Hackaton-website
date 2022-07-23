@@ -131,6 +131,7 @@ function Signup() {
                 <LockIcon />
               </InputAdornment>
           )}
+            type="password"
             placeholder="Confirm password"
             className={classes.input}
           />

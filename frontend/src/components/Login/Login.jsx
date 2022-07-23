@@ -43,6 +43,7 @@ function Login() {
                 <LockIcon />
               </InputAdornment>
           )}
+            type="password"
             placeholder="Password"
             className={classes.input}
             value={formData.password}
