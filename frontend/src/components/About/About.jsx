@@ -1,16 +1,15 @@
-import React from 'react'
-import { Navbar, Footer } from '../index.js';
+import React from 'react';
+import Grid from '@mui/material';
+import { whaleImage } from '../../assets/whale.png';
 
 const About = () => {
   return (
     <>
-        <Navbar />
         <Grid container spacing={1}>
             <Grid item xs={6} md={8}>
-                <img src={`${item.img}?w=164&h=164&fit=crop&auto=format`} />
+                <img src={`${whaleImage}?w=164&h=164&fit=crop&auto=format`} />
             </Grid>
         </Grid>
-        <Footer />
     </>
   )
 }
