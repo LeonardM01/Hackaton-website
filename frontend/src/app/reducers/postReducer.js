@@ -9,6 +9,9 @@ const postSlice = createSlice({
     getPosts(posts, action) {
       return action.payload;
     },
+    loadMorePosts(posts, action) {
+      return [...posts, ...action.payload];
+    },
     createPost(state, action) {
       return [...state, action.payload];
     },

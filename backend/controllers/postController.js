@@ -36,8 +36,7 @@ exports.getPost = async (req, res) => {
   const numSkip = req.query.numSkip || 0;
 
   try {
-      const post = await Post.find().sort({date: -1}).skip(numSkip);
-      
+      const post = await Post.find().sort({date: -1}).skip(numSkip).limit(3);
       res.status(200).json(post);
   } catch (error) {
       res.status(404).json({ message: error.message });
