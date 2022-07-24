@@ -27,7 +27,7 @@ function Marker({ markerId, latitude, longitude, storage, type, mode }) {
         </Typography>
       </CardContent>
       {mode === 'create' && (
-      <Button type="submit" color="success" className={classes.buttonCreate}>
+      <Button type="submit" color="success" onClick={} className={classes.buttonCreate}>
         Create
       </Button>
       )}
