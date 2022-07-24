@@ -60,7 +60,7 @@ function Signup() {
               });
             }}
             required
-            error={!formData.lastName !== ''}
+            error={formData.lastName === ''}
             name="lastName"
             startAdornment={(
               <InputAdornment position="start">
@@ -86,7 +86,7 @@ function Signup() {
                 <AccountCircleIcon />
               </InputAdornment>
           )}
-            error={!formData.username !== ''}
+            error={formData.username === ''}
             placeholder="Username"
             className={classes.input}
           />
@@ -94,7 +94,7 @@ function Signup() {
         <ListItem>
           <Input
             required
-            error={!formData.email !== ''}
+            error={formData.email === ''}
             value={formData.email}
             onChange={(e) => {
               setFromData({
@@ -120,7 +120,7 @@ function Signup() {
               });
             }}
             required
-            error={!formData.password !== ''}
+            error={formData.password === ''}
             name="Password"
             startAdornment={(
               <InputAdornment position="start">
@@ -129,7 +129,7 @@ function Signup() {
             )}
             endAdornment={(
               <InputAdornment position="end">
-                <VisibilityIcon onClick={() => setShowPassword((s) => !s)} />
+                <VisibilityIcon onClick={() => setShowPassword((s) => !s)} sx={{ cursor: 'pointer' }} />
               </InputAdornment>
             )}
             type={showPassword ? 'text' : 'password'}
@@ -145,7 +145,7 @@ function Signup() {
                 <LockIcon />
               </InputAdornment>
           )}
-            error={!formData.passwordConfirm !== '' && formData.passwordConfirm === formData.password}
+            error={formData.confirmPassword === ''}
             type="password"
             value={formData.confirmPassword}
             onChange={(e) => setFromData({ ...formData, confirmPassword: e.target.value })}
