@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Card, CardContent, Typography } from '@mui/material';
-import { MapAdmin } from '..';
+import { MapAdmin, Usertable } from '..';
 
 import useStyles from './styles.js';
 

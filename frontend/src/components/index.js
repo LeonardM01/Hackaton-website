@@ -12,3 +12,4 @@ export { default as Map } from './Map/Map.jsx';
 export { default as Post } from './Post/Post';
 export { default as MapAdmin } from './Map/MapAdmin.jsx';
 export { default as Report } from './Report/Report.jsx';
+export { default as Usertable } from './Usertable/Usertable.jsx';
