@@ -134,6 +134,7 @@ function Navbar() {
                       onClose={handleClose}
                     >
                       <Box className={classes.modal}>
+                        <Typography className={classes.modalTitle}>Objava</Typography>
                         <TextField variant="standard" required placeholder="Naslov" className={classes.modalFields} value={newPost.title} onChange={(e) => setNewPost({ ...newPost, title: e.target.value })} />
                         <TextField variant="standard" required placeholder="Tekst" className={classes.modalFields} value={newPost.body} onChange={(e) => setNewPost({ ...newPost, body: e.target.value })} />
                         <Button type="submit" onClick={createNewPost} className={classes.modalFields}>CREATE</Button>

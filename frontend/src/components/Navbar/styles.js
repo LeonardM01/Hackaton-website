@@ -71,4 +71,10 @@ export default makeStyles((theme) => ({
     margin: '1em 1em 1em 1em !important',
     width: '250px',
   },
+  modalTitle: {
+    margin: '1em !important',
+    fontWeight: 'bold !important',
+    color: 'black',
+    fontSize: '15px',
+  },
 }));
