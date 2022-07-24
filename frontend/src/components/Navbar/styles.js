@@ -52,4 +52,23 @@ export default makeStyles((theme) => ({
     float: 'right',
     justifyContent: 'end',
   },
+  modal: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    maxWidth: '300px',
+    width: '300px',
+    backgroundColor: 'white',
+    p: 4,
+    color: 'white !important',
+    display: 'block',
+    justifyContent: 'center',
+    borderRadius: '5%',
+  },
+  modalFields: {
+    display: 'block',
+    margin: '1em 1em 1em 1em !important',
+    width: '250px',
+  },
 }));

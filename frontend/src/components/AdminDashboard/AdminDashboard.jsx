@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Card, CardContent, Typography, Button } from '@mui/material';
+import TagIcon from '@mui/icons-material/Tag';
 import { MapAdmin, Usertable } from '..';
 
 import useStyles from './styles.js';
@@ -10,10 +11,12 @@ function Marker({ markerId, latitude, longitude, storage, type, mode }) {
   return (
     <Card variant="outlined" className={classes.postBox}>
       <CardContent>
+        {mode !== 'create' && (
         <Typography variant="h6" component="div" className={classes.title}>
-          {markerId}
+          <TagIcon />{markerId}
         </Typography>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+        )}
+        <Typography sx={{ fontSize: 14 }} gutterBottom>
           Geo. visina: {latitude}°<br />
           Geo. dužina: {longitude}°
         </Typography>

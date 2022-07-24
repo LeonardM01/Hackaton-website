@@ -43,7 +43,6 @@ function MapAdmin({ editState: editTrash }) {
     const { length } = trashcan.percentFilled;
     const lastCan = trashcan.percentFilled[length - 1];
     const { longitude, latitude } = trashcan.coordinates;
-    console.log({ ...trashcan, mode: 'edit', lastCan });
     editTrash({ ...trashcan, longitude, latitude, mode: 'edit', lastCan });
   };
 
@@ -57,7 +56,7 @@ function MapAdmin({ editState: editTrash }) {
       onClick={onClickMap}
       className={classes.map}
       // eslint-disable-next-line react/style-prop-object
-      style="mapbox://styles/leonardm01/cl5y86x1a000315pnspwhlcg9"
+      style="mapbox://styles/leonardm01/cl5yvok7v000015mrjq8n97jj"
       center={[14.447347, 45.298818]}
       maxBounds={[
         [14.283084, 45.305503],

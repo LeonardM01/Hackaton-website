@@ -14,8 +14,8 @@ export default makeStyles((theme) => ({
     borderColor: 'green !important',
     marginLeft: '30px',
     marginTop: '150px',
-    maxWidth: '30%',
-    width: '30%',
+    maxWidth: '35%',
+    width: '35%',
     maxHeight: '50%',
     height: '100%',
   },
@@ -29,5 +29,8 @@ export default makeStyles((theme) => ({
   },
   title: {
     fontWeight: 'bold !important',
+  },
+  markerBox: {
+    display: 'block',
   },
 }));

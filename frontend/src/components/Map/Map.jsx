@@ -50,7 +50,7 @@ function Map() {
       scrollZoom="disable"
       className={classes.map}
     // eslint-disable-next-line react/style-prop-object
-      style="mapbox://styles/leonardm01/cl5y86x1a000315pnspwhlcg9"
+      style="mapbox://styles/leonardm01/cl5yvok7v000015mrjq8n97jj"
       center={[14.447347, 45.298818]}
       maxBounds={[[14.287347, 45.298818], [14.549883, 45.428794]]}
       containerStyle={{

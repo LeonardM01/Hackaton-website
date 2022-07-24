@@ -9,11 +9,14 @@ import {
   useMediaQuery,
   Drawer,
   Button,
+  Modal,
+  TextField,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
+import AddIcon from '@mui/icons-material/Add';
 import useStyles from './styles.js';
 
 function Navbar() {
@@ -24,6 +27,9 @@ function Navbar() {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const logout = () => {
     dispatch({ type: 'auth/logout' });
@@ -102,13 +108,32 @@ function Navbar() {
                   Log out
                 </Button>
                 {(user.result.role === 'superadmin' || user.result.role === 'admin') && (
-                  <Button
-                    component={Link}
-                    to="/dashboard"
-                    className={classes.login}
-                  >
-                    Admin dashboard
-                  </Button>
+                  <>
+                    <Button
+                      component={Link}
+                      to="/dashboard"
+                      className={classes.login}
+                    >
+                      Admin dashboard
+                    </Button>
+                    <Button
+                      onClick={handleOpen}
+                      className={classes.login}
+                    >
+                      <AddIcon />
+                    </Button>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                    >
+                      <Box className={classes.modal}>
+                        <TextField variant="standard" required placeholder="Naslov" className={classes.modalFields} />
+                        <TextField variant="standard" required placeholder="Datum" className={classes.modalFields} />
+                        <TextField variant="standard" required placeholder="Tekst" className={classes.modalFields} />
+                        <Button type="submit" onClick={() => {}} className={classes.modalFields}>CREATE</Button>
+                      </Box>
+                    </Modal>
+                  </>
                 )}
               </>
             ) : (
