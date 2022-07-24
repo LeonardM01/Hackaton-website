@@ -4,7 +4,7 @@ import { MapAdmin } from '..';
 
 import useStyles from './styles.js';
 
-function Marker({ markerId, body, date }) {
+function Marker({ markerId, latitude, longitude, storage, type, mode }) {
   const classes = useStyles();
   return (
     <Card variant="outlined" className={classes.postBox}>
@@ -13,10 +13,10 @@ function Marker({ markerId, body, date }) {
           {markerId}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {date}
+          Latitude: {latitude}, longitude: {longitude}
         </Typography>
         <Typography variant="body2" className={classes.text}>
-          {body}
+          {storage}
         </Typography>
       </CardContent>
     </Card>
@@ -27,10 +27,13 @@ function AdminDashboard() {
   const classes = useStyles();
 
   return (
-    <Box className={classes.map}>
-      <MapAdmin />
-      <Marker className={classes.markerBox} />
-    </Box>
+    <>
+      <Box className={classes.map}>
+        <MapAdmin />
+        <Marker className={classes.markerBox} />
+      </Box>
+      <Box />
+    </>
   );
 }
 
