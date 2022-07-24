@@ -39,6 +39,13 @@ function Navbar() {
     setUser(null);
   };
 
+  function scrollToPosts() {
+    document.getElementById('posts').scrollIntoView({
+      behavior: 'smooth',
+    });
+    console.log('hey');
+  }
+
   const createNewPost = async () => {
     await dispatch(createPost({ ...newPost, personId: user.result._id }));
     handleClose();
@@ -80,11 +87,8 @@ function Navbar() {
             <Button component={Link} className={classes.link} to="/">
               Početna
             </Button>
-            <Button component={Link} className={classes.link} to="/">
+            <Button onClick={() => scrollToPosts()} className={classes.link} to="/">
               Novosti
-            </Button>
-            <Button component={Link} className={classes.link} to="/karta/">
-              Karta
             </Button>
             <Button component={Link} className={classes.link} to="/about">
               O nama
@@ -171,11 +175,8 @@ function Navbar() {
               <Button component={Link} className={classes.linkDrawer} to="/">
                 Početna
               </Button>
-              <Button component={Link} className={classes.linkDrawer} to="/">
+              <Button onClick={() => scrollToPosts()} className={classes.linkDrawer} to="/">
                 Novosti
-              </Button>
-              <Button component={Link} className={classes.linkDrawer} to="/karta">
-                Karta
               </Button>
               <Button component={Link} className={classes.linkDrawer} to="/about">
                 O nama

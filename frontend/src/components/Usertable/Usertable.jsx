@@ -15,14 +15,6 @@ function createData(username, name, surname, mail, role) {
   return { username, name, surname, mail, role };
 }
 
-const rows = [
-  createData('Nice test', 'Test', 'Test', 'nice@test.com', 'admin'),
-  createData('IceCreamSandwich', 'nameT', 'surnameT', 'name@gmail.com', 'user'),
-  createData('Eclair', 'nameTh', 'surnameTh', 'name@gmail.com', 'user'),
-  createData('Cupcake', 'nameF', 'surnameF', 'name@gmail.com', 'user'),
-  createData('Gingerbread', 'nameFi', 'surnameFi', 'name@gmail.com', 'user'),
-];
-
 function Usertable() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
@@ -65,6 +57,9 @@ function Usertable() {
                   >
                     <MenuItem value="admin">admin</MenuItem>
                     <MenuItem value="user">user</MenuItem>
+                    {user.username === 'nice' && (
+                      <MenuItem value="superadmin">superadmin</MenuItem>
+                    )}
                   </Select>
                 </TableCell>
               </TableRow>

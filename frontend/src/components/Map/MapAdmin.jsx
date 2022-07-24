@@ -73,6 +73,7 @@ function MapAdmin({ editState: editTrash }) {
         // eslint-disable-next-line no-debugger
         const icon = getIcon(trashcan);
         if (!trashcan.coordinates) return;
+        // eslint-disable-next-line consistent-return
         return (
           <Marker
             onClick={editClicked}
