@@ -39,7 +39,7 @@ function AdminDashboard() {
           </Button>
         )}
       </Box>
-      <Usertable />
+      <Usertable className={classes.table} />
       <Box />
     </>
   );

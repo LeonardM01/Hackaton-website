@@ -18,4 +18,8 @@ export default makeStyles((theme) => ({
     maxHeight: '50%',
     height: '100%',
   },
+  table: {
+    display: 'flex',
+    margin: '3em',
+  },
 }));
