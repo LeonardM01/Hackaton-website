@@ -24,6 +24,7 @@ function MapAdmin({ editState: editTrash }) {
   }
 
   const getIcon = (trashcan) => {
+    if (!trashcan.percentFilled) return trashUndefined;
     const { length } = trashcan.percentFilled;
     if (!length) return trashUndefined;
     const lastTrashcan = trashcan.percentFilled[length - 1];
@@ -71,6 +72,7 @@ function MapAdmin({ editState: editTrash }) {
       {trashcans.map((trashcan) => {
         // eslint-disable-next-line no-debugger
         const icon = getIcon(trashcan);
+        if (!trashcan.coordinates) return;
         return (
           <Marker
             onClick={editClicked}
