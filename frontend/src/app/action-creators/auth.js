@@ -16,7 +16,7 @@ export const getUsers = () => async (dispatch) => {
   try {
     // Api call to create user api.createUser(newUser)
     const { data } = await api.getUsers();
-    dispatch({ type: 'auth/create', payload: data });
+    dispatch({ type: 'user/getUsers', payload: data });
   } catch (error) {
     console.log(error);
   }

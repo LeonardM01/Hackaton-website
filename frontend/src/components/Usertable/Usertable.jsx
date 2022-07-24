@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -8,6 +8,8 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Select from '@mui/material/Select';
 import { MenuItem } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUsers } from '../../app/action-creators/auth.js';
 
 function createData(username, name, surname, mail, role) {
   return { username, name, surname, mail, role };
@@ -22,6 +24,11 @@ const rows = [
 ];
 
 function Usertable() {
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users);
+  useEffect(() => {
+    dispatch(getUsers());
+  }, []);
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -35,30 +42,34 @@ function Usertable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.username}
-              </TableCell>
-              <TableCell align="left">{row.name}</TableCell>
-              <TableCell align="left">{row.surname}</TableCell>
-              <TableCell align="left">{row.mail}</TableCell>
-              <TableCell align="left">
-                <Select
-                  id="demo-simple-select"
-                  value={row.role}
-                  label="Role"
-                  onChange={() => {}}
-                >
-                  <MenuItem value="admin">admin</MenuItem>
-                  <MenuItem value="user">user</MenuItem>
-                </Select>
-              </TableCell>
-            </TableRow>
-          ))}
+          {users.map((user) => {
+            const dispatch = useDispatch();
+
+            return (
+              <TableRow
+                key={user._id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {user.username}
+                </TableCell>
+                <TableCell align="left">{user.firstName}</TableCell>
+                <TableCell align="left">{user.lastName}</TableCell>
+                <TableCell align="left">{user.email}</TableCell>
+                <TableCell align="left">
+                  <Select
+                    onChange={(e) => console.log(e.target.value)}
+                    id="demo-simple-select"
+                    value={user.role}
+                    label="Role"
+                  >
+                    <MenuItem value="admin">admin</MenuItem>
+                    <MenuItem value="user">user</MenuItem>
+                  </Select>
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>
