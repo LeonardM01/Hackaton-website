@@ -6,8 +6,11 @@ const reportSlice = createSlice({
   name: 'reports',
   initialState,
   reducers: {
-    getReports(state, action) {
-      return [...state, action.payload];
+    getReports(posts, action) {
+      return action.payload;
+    },
+    loadMoreReports(posts, action) {
+      return [...posts, ...action.payload];
     },
     createReport(state, action) {
       return [...state, action.payload];

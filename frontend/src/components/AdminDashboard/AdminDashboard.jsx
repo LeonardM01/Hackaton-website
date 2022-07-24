@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Card, CardContent, Typography, Button } from '@mui/material';
 import TagIcon from '@mui/icons-material/Tag';
-import { MapAdmin, Usertable } from '..';
+import { MapAdmin, Usertable, Report } from '..';
 
 import useStyles from './styles.js';
 
@@ -48,6 +48,7 @@ function AdminDashboard() {
       </Box>
       <Box className={classes.table}>
         <Usertable />
+        <Report />
       </Box>
     </>
   );

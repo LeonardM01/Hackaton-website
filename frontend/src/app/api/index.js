@@ -16,8 +16,9 @@ export const deletePost = (id) => API.delete(`/posts/${id}`);
 
 export const loginUser = (formData) => API.post('/user/login', formData);
 export const createUser = (formData) => API.post('/user/create', formData);
+export const getUsers = () => API.get('/user');
 
-export const getReports = (numSkip) => API.get(`/reports/getReports?numSkip=${numSkip}`);
+export const getReports = (numSkip) => API.get(`/reports/getReport?numSkip=${numSkip}`);
 export const createReport = (reportData) => API.post('/reports/createReport', reportData);
 export const resolveReport = (reportData) => API.patch('/reports/resolveReport', reportData);
 

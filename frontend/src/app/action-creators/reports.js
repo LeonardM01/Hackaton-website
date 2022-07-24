@@ -1,9 +1,18 @@
 import * as api from '../api/index';
 
-export const getReports = (numSkip) => async (dispatch) => {
+export const getReports = () => async (dispatch) => {
+  try {
+    const { data } = await api.getReports(0);
+    dispatch({ type: 'reports/getReports', payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const loadMoreReports = (numSkip) => async (dispatch) => {
   try {
     const { data } = await api.getReports(numSkip);
-    dispatch({ type: 'reports/getReports', payload: data });
+    dispatch({ type: 'reports/loadMoreReports', payload: data });
   } catch (error) {
     console.log(error);
   }

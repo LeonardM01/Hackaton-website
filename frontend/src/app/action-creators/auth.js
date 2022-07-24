@@ -12,6 +12,16 @@ export const createUser = (newUser, navigate) => async (dispatch) => {
   }
 };
 
+export const getUsers = () => async (dispatch) => {
+  try {
+    // Api call to create user api.createUser(newUser)
+    const { data } = await api.getUsers();
+    dispatch({ type: 'auth/create', payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const loginUser = (userInfo, navigate) => async (dispatch) => {
   try {
     const { data } = await api.loginUser(userInfo);
