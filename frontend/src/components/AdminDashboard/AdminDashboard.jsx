@@ -46,9 +46,9 @@ function AdminDashboard() {
         <MapAdmin editState={setEditTrash} />
         <Marker className={classes.markerBox} mode={editTrash.mode} markerId={editTrash._id} latitude={editTrash.latitude} longitude={editTrash.longitude} storage={editTrash.lastCan} />
       </Box>
+      <Report />
       <Box className={classes.table}>
         <Usertable />
-        <Report />
       </Box>
     </>
   );

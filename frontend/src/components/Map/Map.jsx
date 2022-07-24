@@ -37,7 +37,7 @@ function Map() {
   }
 
   let heightVar = '53vh';
-  isMobile ? heightVar = '30vh' : heightVar = '53vh';
+  isMobile ? heightVar = '35vh' : heightVar = '41vh';
 
   const Map1 = ReactMapboxGl({
     accessToken:
