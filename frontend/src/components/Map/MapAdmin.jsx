@@ -21,7 +21,7 @@ function MapAdmin() {
   const getIcon = (trashcan) => {
     const { length } = trashcan.percentFilled;
     if (!length) return trashUndefined;
-    const [editMarker, setEditMarker] = useState(null);
+    // const [editMarker, setEditMarker] = useState(null);
     const lastTrashcan = trashcan.percentFilled[length - 1];
 
     if (lastTrashcan <= 0.25) return trashEmpty;
@@ -44,7 +44,7 @@ function MapAdmin() {
       className={classes.map}
       // eslint-disable-next-line react/style-prop-object
       style="mapbox://styles/leonardm01/cl5y86x1a000315pnspwhlcg9"
-      center={[14.383267, 45.305503]}
+      center={[14.447347, 45.298818]}
       maxBounds={[
         [14.283084, 45.305503],
         [14.549883, 45.428794],
