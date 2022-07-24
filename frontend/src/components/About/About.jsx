@@ -26,7 +26,7 @@ function About() {
       <Grid item xs={12} className={classes.gridd}>
         <Box m={1} pt={10}>
           <h1> Naš cilj</h1>
-          <p>Pružamo informacije za odvoz otpada na jednom mjestu kako bi naš grad Rijeku učinili što čišćim.</p>
+          <p>Pružamo informacije za odvoz otpada na jednom mjestu kako bi naš grad Rijeku učinili što čišćom.</p>
         </Box>
       </Grid>
     </Grid>
