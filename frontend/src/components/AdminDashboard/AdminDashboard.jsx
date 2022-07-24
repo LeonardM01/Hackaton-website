@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { Box, Card, CardContent, Typography, Button } from '@mui/material';
 import TagIcon from '@mui/icons-material/Tag';
+import { useDispatch } from 'react-redux';
 import { MapAdmin, Usertable, Report } from '..';
-
+import { createTrashcan } from '../../app/action-creators/trashcans';
 import useStyles from './styles.js';
 
 // eslint-disable-next-line no-unused-vars
 function Marker({ markerId, latitude, longitude, storage, type, mode }) {
+  const dispatch = useDispatch();
+  const handleSubmit = () => {
+    dispatch(createTrashcan({ type: 'Papir', coordinates: { latitude, longitude } }));
+  };
   const classes = useStyles();
   return (
     <Card variant="outlined" className={classes.postBox}>
@@ -27,7 +32,7 @@ function Marker({ markerId, latitude, longitude, storage, type, mode }) {
         </Typography>
       </CardContent>
       {mode === 'create' && (
-      <Button type="submit" color="success" onClick={() => {}} className={classes.buttonCreate}>
+      <Button type="submit" color="success" onClick={handleSubmit} className={classes.buttonCreate}>
         Create
       </Button>
       )}

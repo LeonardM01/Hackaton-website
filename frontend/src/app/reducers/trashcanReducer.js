@@ -7,7 +7,7 @@ const trashcanSlice = createSlice({
   initialState,
   reducers: {
     getTrashcans(state, action) {
-      return action.payload;
+      return [...action.payload];
     },
     getTrashcan(state, action) {
       return [...state, action.payload];

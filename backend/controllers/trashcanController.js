@@ -11,6 +11,7 @@ exports.createTrashcan = async (req, res) => {
         latitude: coordinates.latitude,
         longitude: coordinates.longitude,
       },
+      percentFilled: []
     });
 
     res.status(200).json({ result });

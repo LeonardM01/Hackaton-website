@@ -23,9 +23,9 @@ function Signup() {
   const navigate = useNavigate();
   const authData = useSelector((state) => state.auth);
 
-  const handleSubmit = async () => {
-    console.log(formData);
-    dispatch(createUser(formData, navigate));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await dispatch(createUser(formData, navigate));
   };
 
   return (
