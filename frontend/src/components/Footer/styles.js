@@ -4,11 +4,18 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles(() => ({
   footer: {
     display: 'flex',
-    backgroundColor: 'black',
+    backgroundColor: '#303030',
     color: 'white',
-    textAlign: 'center',
+    justifyContent: 'center',
   },
-  teks: {
+  tekst: {
     textAlign: 'left',
+    lineHeight: '0.9',
+  },
+  foter: {
+    height: '30px',
+    fontSize: '10',
+    backgroundColor: 'black',
+    textAlign: 'center',
   },
 }));

@@ -4,6 +4,7 @@ import whaleImage from '../../assets/whale.png';
 import riImage from '../../assets/rijeka.jpg';
 
 import useStyles from './style.js';
+import Usertable from '../Usertable/Usertable';
 
 function About() {
   const classes = useStyles();
@@ -29,6 +30,7 @@ function About() {
           <p>Pružamo informacije za odvoz otpada na jednom mjestu kako bi naš grad Rijeku učinili što čišćim.</p>
         </Box>
       </Grid>
+      <Usertable />
     </Grid>
   );
 }
