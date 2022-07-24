@@ -10,18 +10,22 @@ import trashEmpty from '../../assets/trashgreen.png';
 import trashUndefined from '../../assets/trashgray.png';
 import trashWarning from '../../assets/trashyellow.png';
 
-function MapAdmin() {
+function MapAdmin({ editState: editTrash }) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const trashcans = useSelector((state) => state.trashcans);
+  const [changeType, setChangeType] = useState('');
+  const [editMarker, setEditMarker] = useState(null);
+
   function onClickMap(map, evt) {
-    console.log(evt.lngLat);
+    const { lat: latitude, lng: longitude } = evt.lngLat;
+    setEditMarker({ latitude, longitude, type: 'Preostali otpad' });
+    editTrash({ latitude, longitude, type: 'Preostali otpad', mode: 'create' });
   }
 
   const getIcon = (trashcan) => {
     const { length } = trashcan.percentFilled;
     if (!length) return trashUndefined;
-    // const [editMarker, setEditMarker] = useState(null);
     const lastTrashcan = trashcan.percentFilled[length - 1];
 
     if (lastTrashcan <= 0.25) return trashEmpty;
@@ -32,6 +36,16 @@ function MapAdmin() {
   useEffect(() => {
     dispatch(getTrashcans());
   }, []);
+
+  const editClicked = (e) => {
+    const _id = e.target.dataset.id;
+    const trashcan = trashcans.find((can) => can._id === _id);
+    const { length } = trashcan.percentFilled;
+    const lastCan = trashcan.percentFilled[length - 1];
+    const { longitude, latitude } = trashcan.coordinates;
+    console.log({ ...trashcan, mode: 'edit', lastCan });
+    editTrash({ ...trashcan, longitude, latitude, mode: 'edit', lastCan });
+  };
 
   const Map = ReactMapboxGl({
     accessToken:
@@ -59,7 +73,12 @@ function MapAdmin() {
         // eslint-disable-next-line no-debugger
         const icon = getIcon(trashcan);
         return (
-          <Marker onClick={(e) => console.log(e.target.dataset.id)} key={trashcan._id} coordinates={[trashcan.coordinates.latitude, trashcan.coordinates.longitude]} anchor="bottom">
+          <Marker
+            onClick={editClicked}
+            key={trashcan._id}
+            coordinates={[trashcan.coordinates.latitude, trashcan.coordinates.longitude]}
+            anchor="bottom"
+          >
             <img src={icon} height="10" data-id={trashcan._id} />
           </Marker>
         );

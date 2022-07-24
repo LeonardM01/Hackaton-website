@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { MapAdmin } from '..';
 
@@ -25,12 +25,14 @@ function Marker({ markerId, latitude, longitude, storage, type, mode }) {
 
 function AdminDashboard() {
   const classes = useStyles();
+  const [editTrash, setEditTrash] = useState({});
+  // markerId, latitude, longitude, storage, type
 
   return (
     <>
       <Box className={classes.map}>
-        <MapAdmin />
-        <Marker className={classes.markerBox} />
+        <MapAdmin editState={setEditTrash} />
+        <Marker className={classes.markerBox} mode={editTrash.mode} markerId={editTrash._id} latitude={editTrash.latitude} longitude={editTrash.longitude} storage={editTrash.lastCan} />
       </Box>
       <Box />
     </>
