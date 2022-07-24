@@ -1,10 +1,20 @@
 const User = require("../models/User.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const mongoose = require("mongoose");
 
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find().limit(5);
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find();
     res.status(200).json(users);
   } catch (error) {
     res.status(404).json({ message: error.message });
@@ -76,3 +86,16 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ message: "Something went wrong." });
   }
 };
+
+exports.changeRole = async (req, res) => { 
+  const { 
+    id,
+    newRole } = req.body;
+  
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+  const user = await User.findById(id);
+  user.role = newRole;
+  await user.save();
+  res.json(user);
+}
