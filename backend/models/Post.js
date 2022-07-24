@@ -15,6 +15,6 @@ module.exports = mongoose.model("Post", PostSchema);
 
 PostSchema.virtual("dateFormat").get(function () {
   const date = DateTime.fromISO(this.date);
-  const formattedDate = date.toLocaleString(DateTime.DATE_SHORT);
+  const formattedDate = date.toLocaleString(DateTime.DATETIME_MED);
   return formattedDate;
 });
