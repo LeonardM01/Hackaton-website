@@ -4,7 +4,6 @@ import whaleImage from '../../assets/whale.png';
 import riImage from '../../assets/rijeka.jpg';
 
 import useStyles from './style.js';
-import Usertable from '../Usertable/Usertable';
 
 function About() {
   const classes = useStyles();
@@ -17,7 +16,7 @@ function About() {
       <Grid item xs={7} md={8} className={classes.tekst}>
         <h1>O nama</h1>
         <h2>ecoRijeka</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+        <p>Mi smo lokalna tvrtka koja se odvozom otpada brine čistoću našeg grada Rijeke. Imamo 300 zaposlenika koji obuhvaćaju vozače, upravu te IT podršku. Kroz našu stručnost.</p>
       </Grid>
       <Grid item xs={12}>
         <Box m={1} pt={10}>
@@ -30,7 +29,6 @@ function About() {
           <p>Pružamo informacije za odvoz otpada na jednom mjestu kako bi naš grad Rijeku učinili što čišćim.</p>
         </Box>
       </Grid>
-      <Usertable />
     </Grid>
   );
 }
