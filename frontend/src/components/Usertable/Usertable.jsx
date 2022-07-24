@@ -7,13 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(
-  username: string,
-  name: string,
-  surname: string,
-  mail: string,
-  role: string,
-) {
+function createData(username, name, surname, mail, role) {
   return { username, name, surname, mail, role };
 }
 
