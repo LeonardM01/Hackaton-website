@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
   map: {
     maxWidth: '100%',
     display: 'flex',
-    padding: '4em',
+    padding: '5em',
     [theme.breakpoints.down('sm')]: {
       padding: '70px 15px 40px 10px',
     },
