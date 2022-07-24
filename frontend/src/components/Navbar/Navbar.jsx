@@ -18,6 +18,7 @@ import decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
 import useStyles from './styles.js';
+import { createPost } from '../../app/action-creators/posts';
 
 function Navbar() {
   const classes = useStyles();
@@ -28,6 +29,7 @@ function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [open, setOpen] = React.useState(false);
+  const [newPost, setNewPost] = useState({ title: '', body: '' });
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -35,6 +37,11 @@ function Navbar() {
     dispatch({ type: 'auth/logout' });
     navigate('/login');
     setUser(null);
+  };
+
+  const createNewPost = async () => {
+    await dispatch(createPost({ ...newPost, personId: user.result._id }));
+    handleClose();
   };
 
   useEffect(() => {
@@ -127,10 +134,9 @@ function Navbar() {
                       onClose={handleClose}
                     >
                       <Box className={classes.modal}>
-                        <TextField variant="standard" required placeholder="Naslov" className={classes.modalFields} />
-                        <TextField variant="standard" required placeholder="Datum" className={classes.modalFields} />
-                        <TextField variant="standard" required placeholder="Tekst" className={classes.modalFields} />
-                        <Button type="submit" onClick={() => {}} className={classes.modalFields}>CREATE</Button>
+                        <TextField variant="standard" required placeholder="Naslov" className={classes.modalFields} value={newPost.title} onChange={(e) => setNewPost({ ...newPost, title: e.target.value })} />
+                        <TextField variant="standard" required placeholder="Tekst" className={classes.modalFields} value={newPost.body} onChange={(e) => setNewPost({ ...newPost, body: e.target.value })} />
+                        <Button type="submit" onClick={createNewPost} className={classes.modalFields}>CREATE</Button>
                       </Box>
                     </Modal>
                   </>
