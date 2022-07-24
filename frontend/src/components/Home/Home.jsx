@@ -12,6 +12,9 @@ function Home() {
       <Box className={classes.map}>
         <Map />
       </Box>
+      <Box className={classes.message}>
+        Potrudimo se zajedno da živimo u čišćem i urednijem gradu
+      </Box>
       <Box className={classes.posts}>
         <Post />
       </Box>
