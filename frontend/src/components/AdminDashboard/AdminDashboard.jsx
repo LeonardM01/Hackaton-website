@@ -32,6 +32,7 @@ function AdminDashboard() {
         <MapAdmin />
         <Marker className={classes.markerBox} />
       </Box>
+      <Usertable />
       <Box />
     </>
   );
