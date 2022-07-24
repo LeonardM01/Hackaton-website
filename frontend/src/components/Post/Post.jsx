@@ -1,28 +1,47 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Typography, Card, CardContent, Box } from '@mui/material';
-
+import { useSelector, useDispatch } from 'react-redux';
 import useStyles from './styles.js';
+
+import { getPosts } from '../../app/action-creators/posts.js';
+
+function PostSingle({ title, body, date }) {
+  const classes = useStyles();
+  return (
+    <Card variant="outlined" className={classes.postBox}>
+      <CardContent>
+        <Typography variant="h4" component="div" className={classes.title}>
+          {title}
+        </Typography>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          {date}
+        </Typography>
+        <Typography variant="body2" className={classes.text}>
+          {body}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+}
 
 function Post() {
   const classes = useStyles();
-  const cardPost = (
-    <CardContent>
-      <Typography variant="h4" component="div" className={classes.title}>
-        Title
-      </Typography>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        22.7.2022.
-      </Typography>
-      <Typography variant="body2" className={classes.text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-      </Typography>
-    </CardContent>
-  );
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.posts);
+
+  const loadMore = () => {
+    dispatch(getPosts(posts.length + 1));
+  };
+  useEffect(() => {
+    dispatch(getPosts(0));
+    console.log(posts);
+  }, []);
+
   return (
     <Box sx={{ minWidth: 275 }}>
-      <Card variant="outlined" className={classes.postBox}>{cardPost}</Card>
-      <Card variant="outlined" className={classes.postBox}>{cardPost}</Card>
-      <Card variant="outlined" className={classes.postBox}>{cardPost}</Card>
+      {posts.map((post) => <PostSingle key={post._id} title={post.title} body={post.body} date={post.date} />)}
+      <button onClick={loadMore}>Load more</button>
+
     </Box>
   );
 }
