@@ -3,7 +3,7 @@ import { Typography, Card, CardContent, Box } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import useStyles from './styles.js';
 
-import { getPosts } from '../../app/action-creators/posts.js';
+import { getPosts, loadMorePosts } from '../../app/action-creators/posts.js';
 
 function PostSingle({ title, body, date }) {
   const classes = useStyles();
@@ -30,11 +30,10 @@ function Post() {
   const posts = useSelector((state) => state.posts);
 
   const loadMore = () => {
-    dispatch(getPosts(posts.length + 1));
+    dispatch(loadMorePosts(posts.length + 1));
   };
   useEffect(() => {
     dispatch(getPosts(0));
-    console.log(posts);
   }, []);
 
   return (
