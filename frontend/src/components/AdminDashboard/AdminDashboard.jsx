@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Card, CardContent, Typography } from '@mui/material';
+import { Box, Card, CardContent, Typography, Button } from '@mui/material';
 import { MapAdmin, Usertable } from '..';
 
 import useStyles from './styles.js';
@@ -33,6 +33,11 @@ function AdminDashboard() {
       <Box className={classes.map}>
         <MapAdmin editState={setEditTrash} />
         <Marker className={classes.markerBox} mode={editTrash.mode} markerId={editTrash._id} latitude={editTrash.latitude} longitude={editTrash.longitude} storage={editTrash.lastCan} />
+        {editTrash.mode === 'create' && (
+          <Button variant="outlined" type="submit" className={classes.buttonCreate}>
+            Create
+          </Button>
+        )}
       </Box>
       <Usertable />
       <Box />
