@@ -11,15 +11,23 @@ export default makeStyles((theme) => ({
     },
   },
   postBox: {
+    borderColor: 'green !important',
     marginLeft: '30px',
     marginTop: '150px',
-    maxWidth: '25%',
-    width: '25%',
+    maxWidth: '30%',
+    width: '30%',
     maxHeight: '50%',
     height: '100%',
   },
   table: {
     display: 'flex',
-    margin: '3em',
+    margin: '3em !important',
+  },
+  buttonCreate: {
+    display: 'block',
+    margin: '0.5em  !important',
+  },
+  title: {
+    fontWeight: 'bold !important',
   },
 }));

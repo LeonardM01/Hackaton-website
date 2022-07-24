@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
 import useStyles from './styles.js';
 
-import { getReports, loadMoreReports } from '../../app/action-creators';
+// import { getReports, loadMoreReports } from '../../app/action-creators';
 
 function ReportSingle({ title, body, date }) {
   const classes = useStyles();
