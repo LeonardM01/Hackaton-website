@@ -2,7 +2,7 @@
 import ReactMapboxGl, { Layer, Feature, Marker } from 'react-mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getTrashcans } from '../../app/action-creators/trashcans.js';
 import useStyles from './styles.js';
 import trashFull from '../../assets/trashred.png';
@@ -21,6 +21,7 @@ function MapAdmin() {
   const getIcon = (trashcan) => {
     const { length } = trashcan.percentFilled;
     if (!length) return trashUndefined;
+    const [editMarker, setEditMarker] = useState(null);
     const lastTrashcan = trashcan.percentFilled[length - 1];
 
     if (lastTrashcan <= 0.25) return trashEmpty;
@@ -58,8 +59,8 @@ function MapAdmin() {
         // eslint-disable-next-line no-debugger
         const icon = getIcon(trashcan);
         return (
-          <Marker key={trashcan._id} coordinates={[trashcan.coordinates.latitude, trashcan.coordinates.longitude]} anchor="bottom">
-            <img src={icon} height="10" />
+          <Marker onClick={(e) => console.log(e.target.dataset.id)} key={trashcan._id} coordinates={[trashcan.coordinates.latitude, trashcan.coordinates.longitude]} anchor="bottom">
+            <img src={icon} height="10" data-id={trashcan._id} />
           </Marker>
         );
       })}

@@ -12,6 +12,10 @@ export default makeStyles((theme) => ({
   },
   posts: {
     padding: '0 2em 2em 2em',
+    [theme.breakpoints.down('sm')]: {
+      margin: '10% 0 0 -2% ',
+      padding: 0,
+    },
     display: 'flex',
     maxWidth: '100%',
     justifyContent: 'space-between',

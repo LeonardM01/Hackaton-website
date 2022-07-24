@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { Typography, Card, CardContent, Box } from '@mui/material';
+import { Typography, Card, CardContent, Box, Button } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
+import AddIcon from '@mui/icons-material/Add';
 import useStyles from './styles.js';
 
 import { getPosts } from '../../app/action-creators/posts.js';
@@ -40,8 +41,7 @@ function Post() {
   return (
     <Box sx={{ minWidth: 275 }}>
       {posts.map((post) => <PostSingle key={post._id} title={post.title} body={post.body} date={post.date} />)}
-      <button onClick={loadMore}>Load more</button>
-
+      <Button size="small" type="button" onClick={loadMore} className={classes.loadMore}>Load More...</Button>
     </Box>
   );
 }
